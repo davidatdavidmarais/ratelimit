@@ -7,8 +7,8 @@ import (
 	"github.com/corverroos/ratelimit"
 )
 
-func NewInt64Window(period time.Duration, limit int) *NewInt64Window {
-	w := &NewInt64Window{
+func NewInt64Window(period time.Duration, limit int) *Int64Window {
+	w := &Int64Window{
 		period: period,
 		limit:  limit,
 		counts: make(map[string]counter, 0),
@@ -38,7 +38,7 @@ func (c *counter) UpdateCounter(l int) bool {
 	return false
 }
 
-func (n *NewInt64Window) CurrentStop() {
+func (n *Int64Window) CurrentStop() {
 	for {
 		time.Sleep(n.period)
 		n.mu.Lock()
