@@ -7,7 +7,7 @@ import (
 	"github.com/corverroos/ratelimit"
 )
 
-func NewInt64Window(period time.Duration, limit int) *RateLimiter {
+func NewInt64Window(period time.Duration, limit int) RateLimiter {
 	w := &Int64Window{
 		period: period,
 		limit:  limit,
